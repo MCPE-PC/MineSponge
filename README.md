@@ -1,2 +1,2 @@
 # MineSponge
-use sponge to mine!
+Use sponge to mine!
