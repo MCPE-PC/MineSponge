@@ -42,7 +42,7 @@ class MineSponge extends PluginBase implements Listener {
 			} else if (mt_rand(1, 100) <= 5) {
 				return Block::get(21);
 			} else if (mt_rand(1, 100) <= 5) {
-				return Block::get(73);
+				return Block::get(74);
 			} else if (mt_rand(1, 100) <= 1) {
 				return Block::get(56);
 			} else if (mt_rand(1, 100) <= 1) {
@@ -65,7 +65,7 @@ class MineSponge extends PluginBase implements Listener {
 			$mineral_id = 388;
 		} else if ($id == 21) {
 			return Item::get(351, 4, mt_rand(1, 4));
-		} else if ($id == 73) {
+		} else if ($id == 74) {
 			return Item::get(331, 0, mt_rand(1, 4));
 		} else if ($id == 1) {
 			$mineral_id = 4;
