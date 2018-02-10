@@ -1,5 +1,5 @@
 name: MineSponge
-main: maru\MineSponge
+main: maru\MineSponge\Main
 author: maru
 version: "1.0.4"
 api:
