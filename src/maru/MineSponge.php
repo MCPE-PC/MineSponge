@@ -30,24 +30,22 @@ class MineSponge extends PluginBase implements Listener {
 		$player->getInventory()->addItem($this->oreTomineral(Item::get($block->getId())));
 	}
 	private function getMineBlock() {
-		while (true) {
-			if (mt_rand(0, 1)) {
-				return Block::get(1);
-			} else if (mt_rand(1, 100) <= 20) {
-				return Block::get(16);
-			} else if (mt_rand(1, 100) <= 10) {
-				return Block::get(15);
-			} else if (mt_rand(1, 100) <= 8) {
-				return Block::get(14);
-			} else if (mt_rand(1, 100) <= 5) {
-				return Block::get(21);
-			} else if (mt_rand(1, 100) <= 5) {
-				return Block::get(74);
-			} else if (mt_rand(1, 100) <= 1) {
-				return Block::get(56);
-			} else if (mt_rand(1, 100) <= 1) {
-				return Block::get(129);
-			}
+		if (mt_rand(0, 1)) {
+			return Block::get(1);
+		} else if (mt_rand(1, 100) <= 20) {
+			return Block::get(16);
+		} else if (mt_rand(1, 100) <= 10) {
+			return Block::get(15);
+		} else if (mt_rand(1, 100) <= 8) {
+			return Block::get(14);
+		} else if (mt_rand(1, 100) <= 5) {
+			return Block::get(21);
+		} else if (mt_rand(1, 100) <= 5) {
+			return Block::get(74);
+		} else if (mt_rand(1, 100) <= 1) {
+			return Block::get(56);
+		} else {
+			return Block::get(129);
 		}
 	}
 	private function oreTomineral (Item $item) {
@@ -76,4 +74,3 @@ class MineSponge extends PluginBase implements Listener {
 		return Item::get($mineral_id);
 	}
 }
-?>
