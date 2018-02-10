@@ -1,5 +1,5 @@
 <?php 
-namespace maru;
+namespace maru\MineSponge;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
@@ -7,7 +7,7 @@ use pocketmine\level\Position;
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\item\Item;
-class MineSponge extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener {
 	public function onEnable() {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
