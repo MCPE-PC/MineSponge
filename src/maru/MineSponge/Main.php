@@ -48,6 +48,7 @@ class Main extends PluginBase implements Listener {
 			} else if (mt_rand(1, 100) <= 1) {
 				return Block::get(129);
 			}
+		}
 	}
 	private function oreTomineral (Item $item) {
 		$id = $item->getId();
