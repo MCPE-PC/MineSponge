@@ -8,28 +8,26 @@ use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\item\Item;
 class Main extends PluginBase implements Listener {
-	public function onEnable() {
+	public function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
-	public function onBlockPlace(BlockPlaceEvent $event) {
+	public function onBlockPlace(BlockPlaceEvent $event): void {
 		$block = $event->getBlock();
 		$pos = new Position($block->getX(), $block->getY() + 1, $block->getZ(), $block->getLevel());
-		if ($block->getId() !== 19 ) {
-			return;
+		if ($block->getId() === 19 ) {
+			$block->getLevel()->setBlock($pos, $this->getMineBlock());
 		}
-		$block->getLevel()->setBlock($pos, $this->getMineBlock());
 	}
-	public function onBlockBreak(BlockBreakEvent $event) {
+	public function onBlockBreak(BlockBreakEvent $event): void {
 		$player = $event->getPlayer();
 		$block = $event->getBlock();
-		if ($block->getLevel()->getBlock(new Position($block->getX(), $block->getY() - 1, $block->getZ(), $block->getLevel()))->getId() !== 19 ) {
-			return;
+		if ($block->getLevel()->getBlock(new Position($block->getX(), $block->getY() - 1, $block->getZ(), $block->getLevel()))->getId() === 19 ) {
+			$event->setCancelled();
+			$block->getLevel()->setBlock(new Position($block->getX(), $block->getY(), $block->getZ(), $block->getLevel()), $this->getMineBlock());
+			$player->getInventory()->addItem($this->oreTomineral(Item::get($block->getId())));
 		}
-		$event->setCancelled();
-		$block->getLevel()->setBlock(new Position($block->getX(), $block->getY(), $block->getZ(), $block->getLevel()), $this->getMineBlock());
-		$player->getInventory()->addItem($this->oreTomineral(Item::get($block->getId())));
 	}
-	private function getMineBlock() {
+	private function getMineBlock(): Block {
 		while (true) {
 			if (mt_rand(0, 1)) {
 				return Block::get(1);
@@ -50,7 +48,7 @@ class Main extends PluginBase implements Listener {
 			}
 		}
 	}
-	private function oreTomineral (Item $item) {
+	private function oreTomineral (Item $item): Item {
 		$id = $item->getId();
 		$damage = $item->getDamage();
 		if ($id == 14) {
