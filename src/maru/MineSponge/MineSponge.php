@@ -7,7 +7,7 @@ use pocketmine\level\Position;
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\item\Item;
-class Main extends PluginBase implements Listener {
+class MineSponge extends PluginBase implements Listener {
 	public function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener {
 		if ($block->getLevel()->getBlock(new Position($block->getX(), $block->getY() - 1, $block->getZ(), $block->getLevel()))->getId() === 19 ) {
 			$event->setCancelled();
 			$block->getLevel()->setBlock(new Position($block->getX(), $block->getY(), $block->getZ(), $block->getLevel()), $this->getMineBlock());
-			$player->getInventory()->addItem($this->oreTomineral(Item::get($block->getId())));
+			$player->getInventory()->addItem($this->oreToMineral(Item::get($block->getId())));
 		}
 	}
 	private function getMineBlock(): Block {
@@ -48,7 +48,7 @@ class Main extends PluginBase implements Listener {
 			}
 		}
 	}
-	private function oreTomineral (Item $item): Item {
+	private function oreToMineral (Item $item): Item {
 		$id = $item->getId();
 		$damage = $item->getDamage();
 		if ($id == 14) {
@@ -67,8 +67,7 @@ class Main extends PluginBase implements Listener {
 			return Item::get(331, 0, mt_rand(1, 4));
 		} else if ($id == 1) {
 			$mineral_id = 4;
-		}
-		else {
+		} else {
 			$mineral_id = $item->getId();
 		}
 		return Item::get($mineral_id);
