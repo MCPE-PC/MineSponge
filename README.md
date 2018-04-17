@@ -4,7 +4,7 @@
 
 ___Use sponge to mine!___
 
-__스폰지를 사용하여 광질을 하세요!__
+_스폰지를 사용하여 광질을 하세요!_
 
 
 Easy-to-use mining plugin
