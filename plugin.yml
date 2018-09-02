@@ -3,9 +3,5 @@ main: maru\MineSponge\MineSponge
 author: maru
 version: 1.0.5
 api:
-- 3.0.0-ALPHA7
-- 3.0.0-ALPHA8
-- 3.0.0-ALPHA9
-- 3.0.0-ALPHA10
-- 3.0.0-ALPHA11
-- 3.0.0-ALPHA12
+- 3.0.0
+- 4.0.0
